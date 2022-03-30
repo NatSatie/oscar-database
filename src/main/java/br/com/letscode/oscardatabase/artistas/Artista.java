@@ -1,4 +1,4 @@
-package br.com.letscode.oscardatabase.atores;
+package br.com.letscode.oscardatabase.artistas;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
