@@ -18,24 +18,25 @@ import lombok.ToString;
 @Getter
 @Setter
 @Entity
-public class Premiacao {
+public class PremiacaoArtista {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column(nullable = false)
-    private int ano;
-    @Column(nullable = false)
-    private String nomeFilme;
+    private int artistaIdade;
+
+    @ManyToOne
+    @JoinColumn(name = "premiacao_id", nullable = false)
+    private Premiacao premiacao;
 
     @ManyToOne
     @JoinColumn(name = "artista_id", nullable = false)
-    //constraint artista_fk foreign key (artista) references artista(id)
     private Artista artista;
 
-    public Premiacao(int ano, String nomeFilme, Artista artista) {
-        this.ano = ano;
-        this.nomeFilme = nomeFilme;
+    public PremiacaoArtista(int artistaIdade, Premiacao premiacao, Artista artista) {
+        this.artistaIdade = artistaIdade;
+        this.premiacao = premiacao;
         this.artista = artista;
     }
 }
